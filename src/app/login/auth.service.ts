@@ -10,18 +10,36 @@ export class AuthenticationService {
   // BASE_PATH: 'http://localhost:8080'
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
-  public username: string ="";
-  public password: string ="";
+  private _username: string ="";
+  private _password: string ="";
+
+  get username(): string {
+    return this._username;
+  }
+
+  set username(value: string) {
+    this._username = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
+  }
 
   constructor(private http: HttpClient) {
 
   }
 
+
+
   authenticationService(username: string, password: string) {
     return this.http.get(`http://localhost:8080/api/v1/basicauth`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-      this.username = username;
-      this.password = password;
+      this._username = username;
+      this._password = password;
       this.registerSuccessfulLogin(username, password);
     }));
   }
@@ -36,8 +54,8 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    this.username = '';
-    this.password = '';
+    this._username = '';
+    this._password = '';
   }
 
   isUserLoggedIn() {
