@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Commentaire de base sur Spring Security
+
+ce repository a pour but personnel sur l'aspect basique du mélange spring et angular
+J'ai modifié pas mal de chose sur le tuto de java guides voici le lien :
+https:// www . java guides . net /2019/ 04/ spring-boot-spring- security- angular- example- tutorial .html
